@@ -14,13 +14,13 @@
   pointer-events: none;
 
   visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s;
+  transform: translateY(-100%);
+  transition: visibility 0.8s, transform 0.8s cubic-bezier(0.860, 0.000, 0.070, 1.000);
 }
 
 .BSMeter--open {
   visibility: visible;
-  opacity: 1;
+  transform: translateY(0%);
   pointer-events: initial;
 }
 
@@ -57,7 +57,7 @@
   border-radius: 0 10px 10px 0;
   transform-origin: right center;
 
-  transition: transform 0.5s 0.5s;
+  transition: transform 0.8s 0.8s cubic-bezier(0.860, 0.000, 0.070, 1.000);
 }
 
 .BSMeter__footer {
@@ -70,6 +70,7 @@
   font-size: 12px;
   padding: 0 20px 20px 0;
   line-height: 1;
+  text-decoration: none;
 }
 
 .BSMeter__footer:after {

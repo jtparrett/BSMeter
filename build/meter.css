@@ -1,0 +1,84 @@
+.BSMeter {
+  position: fixed;
+  top: 0;
+  left: 0;  
+  width: 100%;
+  min-height: 100%;
+  background: #0d0d0d;
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.BSMeter--open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.BSMeter__wrapper {
+  position: relative;
+  width: 340px;
+  height: 365px;
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/content.svg');
+  background-repeat: no-repeat;
+}
+
+.BSMeter__result {
+  position: absolute;
+  color: #f70c36;
+  font-size: 30px;
+  font-family: arial;
+  left: auto;
+  right: 115px;
+  line-height: 1;
+  font-weight: 700;
+  bottom: 3px;
+}
+
+.BSMeter__needle {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  margin-left: -150px;
+  border-right: 150px solid #fff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  height: 0;
+  width: 0;
+  border-radius: 0 10px 10px 0;
+  transform-origin: right center;
+
+  transition: transform 0.5s 0.5s;
+}
+
+.BSMeter__footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: arial;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 20px 20px 0;
+  line-height: 1;
+}
+
+.BSMeter__footer:after {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/rawnet-logo.png');
+  background-size: cover;
+  vertical-align: middle;
+  margin-left: 10px;
+}

@@ -8,25 +8,21 @@ BSMeter.prototype.create = function(){
   this.elements = {
     container: document.createElement('div'),
     wrapper: document.createElement('div'),
-    result: document.createElement('span'),
     needle: document.createElement('span'),
-    footer: document.createElement('a')
+    result: document.createElement('span')
   };
 
   this.elements.container.classList.add('BSMeter');
   this.elements.wrapper.classList.add('BSMeter__wrapper');
-  this.elements.result.classList.add('BSMeter__result');
-  this.elements.needle.classList.add('BSMeter__needle');
-  
-  this.elements.footer.classList.add('BSMeter__footer');
-  this.elements.footer.innerHTML = 'Eccentrically evolved by';
-  this.elements.footer.setAttribute('href', 'http://www.rawnet.com');
-  this.elements.footer.setAttribute('target', '_blank');
+  this.elements.container.innerHTML = '<a class="BSMeter__footer" href="http://www.rawnet.com" target="_blank">Eccentrically evolved by</a>';
 
-  this.elements.wrapper.appendChild(this.elements.result);
+  this.elements.needle.classList.add('BSMeter__needle');
   this.elements.wrapper.appendChild(this.elements.needle);
+
+  this.elements.result.classList.add('BSMeter__result');
+  this.elements.wrapper.appendChild(this.elements.result);
+
   this.elements.container.appendChild(this.elements.wrapper);
-  this.elements.container.appendChild(this.elements.footer);
   document.body.appendChild(this.elements.container);
 };
 
@@ -73,9 +69,9 @@ BSMeter.prototype.checkWord = function(word){
 
 BSMeter.prototype.getResult = function(){
   var result = ((this.score / this.opts.keywords.length) * 100).toFixed(1);
-  var angle = 180 * (result / 100);
+  var angle = 190 * (result / 100);
 
-  angle = (result > 100)? 180 : angle;
+  angle = (result > 100)? 190 : angle;
 
   this.elements.result.innerHTML = result + '%';
   this.elements.needle.style.transform = 'rotate(' + angle + 'deg)';

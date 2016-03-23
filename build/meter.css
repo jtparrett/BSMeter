@@ -4,7 +4,7 @@
   left: 0;  
   width: 100%;
   min-height: 100%;
-  background: #0d0d0d;
+  background: rgba(0, 0, 0, 0.85);
   z-index: 999999;
 
   display: flex;
@@ -13,14 +13,14 @@
 
   pointer-events: none;
 
+  opacity: 0;
   visibility: hidden;
-  transform: translateY(-100%);
-  transition: visibility 0.8s, transform 0.8s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  transition: visibility 0.5s, opacity 0.5s;
 }
 
 .BSMeter--open {
+  opacity: 1;
   visibility: visible;
-  transform: translateY(0%);
   pointer-events: initial;
 }
 
@@ -30,6 +30,13 @@
   height: 365px;
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/content.svg');
   background-repeat: no-repeat;
+
+  transform: translateY(-10%);
+  transition: transform 0.8s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
+.BSMeter--open .BSMeter__wrapper {
+  transform: translateY(0%);
 }
 
 .BSMeter__result {
